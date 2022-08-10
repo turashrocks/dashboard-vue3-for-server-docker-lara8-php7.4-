@@ -123,13 +123,16 @@ export default defineComponent({
     const router = useRouter();
 
     const submit = async () => {
-      await axios.post('login', {
+      const response = await axios.post('login', {
         email: email.value,
         password: password.value,
-        scope: 'admin'
+        // scope: 'admin'
       });
-
+      localStorage.setItem('access_token', response.data.access_token)
+      
+      // console.log(response)
       await router.push('/dashboard');
+      // await router.push('/dashboard');
     }
 
     return {

@@ -8,6 +8,7 @@ import './assets/bootstrap/css/bootstrap.min.css'
 import './assets/main.css'
 
 axios.defaults.baseURL = 'http://localhost:8080/api/';
+// axios.defaults.headers.common['Authorization']= 'Bearer ${localStorage.getItem('access_token')}';
 axios.defaults.withCredentials = true;
 
 createApp(App).use(store).use(router).mount('#app')
