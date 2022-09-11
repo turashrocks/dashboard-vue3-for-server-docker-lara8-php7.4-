@@ -1,41 +1,51 @@
 <template>
-      <h2>Dashboard</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <h2>Daily Sales</h2>
+
+  <div id="chart"></div>
 </template>
 
+<script>
+import {onMounted} from 'vue';
+import axios from 'axios';
+import * as c3 from 'c3';
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
+export default {
   name: "Dashboard",
-});
+  setup() {
+    onMounted(async () => {
+      const chart = c3.generate({
+        bindto: '#chart',
+        data: {
+          x: 'x',
+          columns: [
+            ['x'],
+            ['Sales']
+          ],
+          types: {
+            Sales: 'bar'
+          }
+        },
+        axis: {
+          x: {
+            type: 'timeseries',
+            tick: {
+              format: '%Y-%m-%d'
+            }
+          }
+        }
+      });
+
+      const response = await axios.get('chart');
+
+      const records = response.data.data;
+
+      chart.load({
+        columns: [
+          ['x', ...records.map(r => r.date)],
+          ['Sales', ...records.map(r => r.sum)]
+        ]
+      });
+    });
+  }
+}
 </script>
