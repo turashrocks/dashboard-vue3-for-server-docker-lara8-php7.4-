@@ -9,11 +9,17 @@ import UsersEdit from '@/secure/users/UsersEdit.vue';
 import Roles from "@/secure/roles/Roles.vue";
 import RolesCreate from "@/secure/roles/RolesCreate.vue";
 import RolesEdit from "@/secure/roles/RolesEdit.vue";
-import Products from "@/secure/products/Products.vue";
-import ProductsCreate from "@/secure/products/ProductsCreate.vue";
-import ProductsEdit from "@/secure/products/ProductsEdit.vue";
-import Orders from "@/secure/orders/Orders.vue";
-import OrderItems from "@/secure/orders/OrderItems.vue";
+import Departments from "@/secure/departments/Departments.vue";
+import DepartmentsCreate from "@/secure/departments/DepartmentCreate.vue";
+import DepartmentsEdit from "@/secure/departments/DepartmentEdit.vue";
+import Students from "@/secure/students/Students.vue";
+import StudentsCreate from "@/secure/students/StudentsCreate.vue";
+import StudentsEdit from "@/secure/students/StudentsEdit.vue";
+// import Products from "@/secure/products/Products.vue";
+// import ProductsCreate from "@/secure/products/ProductsCreate.vue";
+// import ProductsEdit from "@/secure/products/ProductsEdit.vue";
+// import Orders from "@/secure/orders/Orders.vue";
+// import OrderItems from "@/secure/orders/OrderItems.vue";
 import Profile from "@/secure/profile/Profile.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -23,33 +29,65 @@ const routes: Array<RouteRecordRaw> = [
         path: '',
         component: Secure,
         children: [
-            {path: '', 
-            redirect: '/dashboard'
+            {
+                path: '', 
+                redirect: '/dashboard'
             },
-            {path: '/dashboard', 
-            component: Dashboard
+            {
+                path: '/dashboard', 
+                component: Dashboard
             },
-            {path: '/profile', 
-            component: Profile
+            {
+                path: '/profile', 
+                component: Profile
             },
-            {path: '/users', 
-            component: Users
+            {
+                path: '/users', 
+                component: Users
             },
-                {path: '/users/create', 
-                component: UsersCreate
+                {
+                    path: '/users/create', 
+                    component: UsersCreate
                 },
                 {
-                path: '/users/:id/edit', 
-                component: UsersEdit
+                    path: '/users/:id/edit', 
+                    component: UsersEdit
                 },
-            {path: '/roles', 
-            component: Roles
+            {
+                path: '/roles', 
+                component: Roles
             },
-                {path: '/roles/create', 
-                component: RolesCreate
+                {
+                    path: '/roles/create', 
+                    component: RolesCreate
                 },
-                {path: '/roles/:id/edit', 
-                component: RolesEdit
+                {
+                    path: '/roles/:id/edit', 
+                    component: RolesEdit
+                },
+            {
+                path: '/departments',
+                component: Departments
+            },
+                {
+                    path: '/departments/create', 
+                    component: DepartmentsCreate
+                },
+                {
+                    path: '/departments/:id/edit', 
+                    component: DepartmentsEdit
+                },
+            {
+                path: '/students',
+                component: Students
+            },
+                {
+                    path: '/students/create', 
+                    component: StudentsCreate
+                },
+                {
+                    path: '/students/:id/edit', 
+                    component: StudentsEdit
                 },
             // {path: '/products', 
             // component: Products

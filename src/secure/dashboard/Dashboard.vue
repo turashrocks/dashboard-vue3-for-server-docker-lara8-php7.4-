@@ -1,7 +1,8 @@
 <template>
-  <h2>Daily Sales</h2>
-
-  <div id="chart"></div>
+  <div>
+    <h3>Welcome to Dashboard</h3>
+  </div>
+  <!-- <div id="chart"></div> -->
 </template>
 
 <script>

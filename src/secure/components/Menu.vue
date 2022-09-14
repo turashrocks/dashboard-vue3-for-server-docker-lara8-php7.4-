@@ -12,13 +12,16 @@
           <router-link to="/roles" active-class="active" class="nav-link">Roles</router-link>
         </li>
         <li class="nav-item"  v-if="user.canView('users')">
+          <router-link to="/departments" active-class="active" class="nav-link">Deparments</router-link>
+        </li>
+        <li class="nav-item"  v-if="user.canView('users')">
+          <router-link to="/students" active-class="active" class="nav-link">Students</router-link>
+        </li>
+        <li class="nav-item"  v-if="user.canView('users')">
           <a href="#" active-class="active" class="nav-link"><i>-----</i></a>
         </li>
         <li class="nav-item"  v-if="user.canView('users')">
-          <a href="#" active-class="active" class="nav-link"><i>Department-under dev</i></a>
-        </li>
-        <li class="nav-item"  v-if="user.canView('users')">
-          <a href="#" active-class="active" class="nav-link"><i>Student-under dev</i></a>
+          <a href="#" active-class="active" class="nav-link"><i>Results-under dev</i></a>
         </li>
         <!-- <li class="nav-item" v-if="user.canView('products')">
           <router-link to="/products" active-class="active" class="nav-link">Products</router-link>
